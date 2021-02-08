@@ -38,6 +38,8 @@
 </head>
 
 <body>
+    <div id="progressbar"></div>
+  <div id="scrollpath"></div>
 
   <!-- ======= Mobile nav toggle button ======= -->
   <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
@@ -592,7 +594,14 @@
     <span></span>
     <span></span>
     <i class="icofont-bubble-up"></i></a>
-
+ <script>
+      let progress=document.getElementById('progressbar');
+      let totalHeight=document.body.scrollHeight-window.innerHeight;
+      window.onscroll=function(){
+          let progressHeight=(window.pageYOffset / totalHeight) * 100;
+          progress.style.height = progressHeight + "%";
+      }
+  </script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
